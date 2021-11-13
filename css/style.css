@@ -8,10 +8,17 @@ Dark green: #28b485
 */
 
 /* css resets */
-* {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: inherit; /* force inheritance */
+}
+
+html {
+  /* root */
+  font-size: 62.5%; /* 10px equivalent of the deafult 16px*/
 }
 
 body {
@@ -20,7 +27,8 @@ body {
   font-size: 16px;
   line-height: 1.7;
   color: #777;
-  padding: 30px; /* add a padding on the entire body */
+  padding: 3rem; /* add a padding on the entire body */
+  box-sizing: border-box;
 }
 
 .header {
@@ -42,17 +50,17 @@ body {
   ); /* https://bennettfeely.com/clippy/ */
 }
 
-.logo-box {
+.header__logo-box {
   position: absolute;
-  top: 40px;
-  left: 40px;
+  top: 4rem;
+  left: 4rem;
 }
 
-.logo {
-  height: 35px; /* browser will adjust on the width */
+.header__logo {
+  height: 3.5rem; /* browser will adjust on the width */
 }
 
-.text-box {
+.header__text-box {
   position: absolute;
   top: 40%;
   left: 50%; /* in relation to the parent */
@@ -64,13 +72,13 @@ body {
   color: #fff;
   text-transform: uppercase;
   backface-visibility: hidden; /* make the back part hidden during animation */
-  margin-bottom: 60px;
+  margin-bottom: 6rem;
 }
-.heading-primary-main {
+.heading-primary--main {
   display: block; /* occupy the width and have a new line each element*/
-  font-size: 60px;
+  font-size: 6rem;
   font-weight: 400;
-  letter-spacing: 35px;
+  letter-spacing: 3.5rem;
   animation-name: moveInLeft;
   animation-duration: 2s;
   animation-timing-function: ease-out;
@@ -78,11 +86,11 @@ body {
   /* animation-delay: 3s; */
 }
 
-.heading-primary-sub {
+.heading-primary--sub {
   display: block;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 700;
-  letter-spacing: 17.4px;
+  letter-spacing: 1.75rem;
   animation-name: moveInRight;
   animation: moveInRight 2s ease-out; /* combine in 1 line */
 }
@@ -90,11 +98,11 @@ body {
 @keyframes moveInLeft {
   0% {
     opacity: 0;
-    transform: translateX(-100px); /* move in x axis */
+    transform: translateX(-10rem); /* move in x axis */
   }
 
   80% {
-    transform: translateX(10px);
+    transform: translateX(1rem);
   }
 
   100% {
@@ -106,11 +114,11 @@ body {
 @keyframes moveInRight {
   0% {
     opacity: 0;
-    transform: translateX(100px); /* move in x axis */
+    transform: translateX(10rem); /* move in x axis */
   }
 
   80% {
-    transform: translateX(-10px);
+    transform: translateX(-1rem);
   }
 
   100% {
@@ -122,7 +130,7 @@ body {
 @keyframes moveInBottom {
   0% {
     opacity: 0;
-    transform: translateY(30px); /* move in x axis */
+    transform: translateY(3rem); /* move in x axis */
   }
 
   100% {
@@ -135,28 +143,29 @@ body {
 .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
-  padding: 15px 40px;
+  padding: 1.5rem 4rem;
   display: inline-block; /* to add some padding or some height and width to an element*/
-  border-radius: 100px;
+  border-radius: 10rem;
   transition: all 0.2s;
   position: relative;
+  font-size: 1.6rem;
 }
 
 .btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* x,y,blur */
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); /* x,y,blur */
 }
 
 .btn:active {
   transform: translateY(-1px);
 }
 
-.btn-white {
+.btn--white {
   background-color: #fff;
   color: #777;
 }
 
-.btn-animated {
+.btn--animated {
   animation: moveInBottom 0.5s ease-out 0.75s;
   animation-fill-mode: backwards; /* automatically apply the 0% frames in moveInBottom before the animation start*/
 }
@@ -166,7 +175,7 @@ body {
   display: inline-block;
   height: 100%;
   width: 100%;
-  border-radius: 100px;
+  border-radius: 10rem;
   position: absolute;
   top: 0;
   left: 0;
@@ -174,7 +183,7 @@ body {
   transition: all 0.4s;
 }
 
-.btn-white::after {
+.btn--white::after {
   background-color: #fff;
 }
 
